@@ -1,22 +1,15 @@
-
-
-package io.gdcc.spi.export.ddipdf;
+package io.gdcc.export.ddipdf;
 
 import com.google.auto.service.AutoService;
-
-import io.gdcc.spi.export.ddipdf.DdiPdfExportUtil;
 import io.gdcc.spi.export.ExportDataProvider;
 import io.gdcc.spi.export.ExportException;
 import io.gdcc.spi.export.Exporter;
 import jakarta.ws.rs.core.MediaType;
 
 import javax.xml.stream.XMLStreamException;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Locale;
 import java.util.Optional;
 
@@ -74,7 +67,7 @@ public class PdfCodeBookExporter implements Exporter {
     @Override
     public String  getMediaType() {
         return MediaType.WILDCARD;
-    };
+    }
 }
 
 

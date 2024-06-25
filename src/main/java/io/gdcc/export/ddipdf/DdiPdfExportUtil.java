@@ -1,56 +1,32 @@
-package io.gdcc.spi.export.ddipdf;
-
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.time.LocalDate;
-import java.util.*;
-import java.util.Map.Entry;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import jakarta.json.Json;
-import jakarta.json.JsonArray;
-import jakarta.json.JsonArrayBuilder;
-import jakarta.json.JsonObject;
-import jakarta.json.JsonString;
-import jakarta.json.JsonValue;
-import javax.xml.stream.XMLOutputFactory;
-import javax.xml.stream.XMLStreamException;
-import javax.xml.stream.XMLStreamWriter;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-import org.xml.sax.SAXException;
-import org.w3c.dom.Document;
-
-// For write operation
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerException;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.TransformerConfigurationException;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamSource;
-import javax.xml.transform.stream.StreamResult;
-import java.io.InputStream;
-
-import javax.xml.transform.Result;
-import javax.xml.transform.Source;
-import javax.xml.transform.sax.SAXResult;
+package io.gdcc.export.ddipdf;
 
 import org.apache.fop.apps.FOUserAgent;
 import org.apache.fop.apps.Fop;
 import org.apache.fop.apps.FopFactory;
 import org.apache.fop.apps.MimeConstants;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import javax.xml.stream.XMLStreamException;
+import javax.xml.transform.Result;
+import javax.xml.transform.Source;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.sax.SAXResult;
+import javax.xml.transform.stream.StreamSource;
 import java.io.File;
+import java.io.InputStream;
+import java.io.OutputStream;
 
 
 public class DdiPdfExportUtil {
 
-    private static final Logger logger = Logger.getLogger(DdiPdfExportUtil.class.getCanonicalName());
+    private static final Logger logger = LoggerFactory.getLogger(DdiPdfExportUtil.class);
+    
+    private DdiPdfExportUtil() {
+        // As this is a util class, adding a private constructor disallows instances of this class.
+    }
+    
     public static void datasetPdfDDI(InputStream datafile, OutputStream outputStream) throws XMLStreamException {
         try {
             InputStream  styleSheetInput = DdiPdfExportUtil.class.getResourceAsStream("ddi-to-fo.xsl");
@@ -87,10 +63,10 @@ public class DdiPdfExportUtil {
                 transformer.transform(src, res);
 
             } catch (Exception e) {
-                logger.severe(e.getMessage());
+                logger.error(e.getMessage());
             }
         }  catch (Exception e) {
-            logger.severe(e.getMessage());
+            logger.error(e.getMessage());
         }
     }
 
