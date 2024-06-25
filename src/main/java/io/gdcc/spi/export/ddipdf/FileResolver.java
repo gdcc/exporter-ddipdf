@@ -1,12 +1,11 @@
 package io.gdcc.spi.export.ddipdf;
 
-import java.io.InputStream;
-import java.util.logging.Logger;
-
 import javax.xml.transform.Source;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.URIResolver;
 import javax.xml.transform.stream.StreamSource;
+import java.io.InputStream;
+import java.util.logging.Logger;
 
 public class FileResolver implements URIResolver {
     
