@@ -4,6 +4,8 @@ import org.apache.fop.apps.FOUserAgent;
 import org.apache.fop.apps.Fop;
 import org.apache.fop.apps.FopFactory;
 import org.apache.fop.apps.MimeConstants;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.xml.stream.XMLStreamException;
 import javax.xml.transform.Result;
@@ -15,12 +17,12 @@ import javax.xml.transform.stream.StreamSource;
 import java.io.File;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.util.logging.Logger;
 
 
 public class DdiPdfExportUtil {
 
-    private static final Logger logger = Logger.getLogger(DdiPdfExportUtil.class.getCanonicalName());
+    private static final Logger logger = LoggerFactory.getLogger(DdiPdfExportUtil.class);
+    
     public static void datasetPdfDDI(InputStream datafile, OutputStream outputStream) throws XMLStreamException {
         try {
             InputStream  styleSheetInput = DdiPdfExportUtil.class.getResourceAsStream("ddi-to-fo.xsl");
@@ -57,10 +59,10 @@ public class DdiPdfExportUtil {
                 transformer.transform(src, res);
 
             } catch (Exception e) {
-                logger.severe(e.getMessage());
+                logger.error(e.getMessage());
             }
         }  catch (Exception e) {
-            logger.severe(e.getMessage());
+            logger.error(e.getMessage());
         }
     }
 

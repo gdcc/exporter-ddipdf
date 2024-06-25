@@ -1,20 +1,21 @@
 package io.gdcc.spi.export.ddipdf;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import javax.xml.transform.Source;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.URIResolver;
 import javax.xml.transform.stream.StreamSource;
 import java.io.InputStream;
-import java.util.logging.Logger;
 
 public class FileResolver implements URIResolver {
     
-    private static final Logger logger = Logger.getLogger(FileResolver.class.getCanonicalName());
-    
+    private static final Logger logger = LoggerFactory.getLogger(FileResolver.class);
 
     @Override
     public Source resolve(String href, String base) throws TransformerException {
-        logger.info("In File Resolver: " + href + "  " + base);
+        logger.info("In File Resolver: {} {}", href, base);
         if (href.startsWith("file:")) {
         String url =href.substring("file:".length()); // some calculation from its parameters
                 InputStream is = this.getClass().getResourceAsStream(url);
