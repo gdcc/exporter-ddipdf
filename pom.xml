@@ -10,27 +10,41 @@
     <packaging>jar</packaging>
 
     <name>DDI PDF Exporter</name>
+    <description>Dataverse Plugin to export dataset metadata as printable PDF, following the DDI schema</description>
+    <url>https://github.com/gdcc/exporter-ddipdf</url>
+    <scm>
+        <connection>scm:git:git@github.com:gdcc/exporter-ddipdf.git</connection>
+        <developerConnection>scm:git:git@github.com:gdcc/exporter-ddipdf.git</developerConnection>
+        <url>git@github.com:gdcc/exporter-ddipdf.git</url>
+    </scm>
+    <issueManagement>
+        <system>GitHub Issues</system>
+        <url>https://github.com/gdcc/exporter-ddipdf/issues</url>
+    </issueManagement>
+    <ciManagement>
+        <system>github</system>
+        <url>https://github.com/gdcc/exporter-ddipdf/actions</url>
+    </ciManagement>
+    
+    <developers>
+        <developer>
+            <name>Jim Myers</name>
+        </developer>
+    </developers>
 
     <parent>
         <groupId>io.gdcc.export</groupId>
         <artifactId>parent</artifactId>
-        <!-- In a real application, you should use a released version -->
-        <version>1.0.0-SNAPSHOT</version>
+        <version>2.0.0-M2</version>
     </parent>
 
     <dependencies>
-        <!-- Two examples for dependencies with versions managed by parent-->
         <dependency>
-            <groupId>jakarta.json</groupId>
-            <artifactId>jakarta.json-api</artifactId>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.parsson</groupId>
-            <artifactId>parsson</artifactId>
-            <scope>test</scope>
+            <groupId>org.apache.xmlgraphics</groupId>
+            <artifactId>fop</artifactId>
+            <version>2.9</version>
         </dependency>
     </dependencies>
 
-    <!-- There is no <build> section here because the Parent POM takes care of it for this rather simple example! -->
+    <!-- There is no <build> section here because the Parent POM takes care of it -->
 </project>
