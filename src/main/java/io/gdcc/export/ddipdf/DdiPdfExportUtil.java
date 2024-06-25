@@ -23,6 +23,10 @@ public class DdiPdfExportUtil {
 
     private static final Logger logger = LoggerFactory.getLogger(DdiPdfExportUtil.class);
     
+    private DdiPdfExportUtil() {
+        // As this is a util class, adding a private constructor disallows instances of this class.
+    }
+    
     public static void datasetPdfDDI(InputStream datafile, OutputStream outputStream) throws XMLStreamException {
         try {
             InputStream  styleSheetInput = DdiPdfExportUtil.class.getResourceAsStream("ddi-to-fo.xsl");
