@@ -1,5 +1,3 @@
-
-
 package io.gdcc.spi.export.ddipdf;
 
 import com.google.auto.service.AutoService;
