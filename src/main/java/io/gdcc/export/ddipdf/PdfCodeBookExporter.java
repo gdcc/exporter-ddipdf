@@ -1,4 +1,4 @@
-package io.gdcc.spi.export.ddipdf;
+package io.gdcc.export.ddipdf;
 
 import com.google.auto.service.AutoService;
 import io.gdcc.spi.export.ExportDataProvider;

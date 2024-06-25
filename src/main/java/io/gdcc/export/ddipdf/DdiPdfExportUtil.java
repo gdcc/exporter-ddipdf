@@ -1,4 +1,4 @@
-package io.gdcc.spi.export.ddipdf;
+package io.gdcc.export.ddipdf;
 
 import org.apache.fop.apps.FOUserAgent;
 import org.apache.fop.apps.Fop;
