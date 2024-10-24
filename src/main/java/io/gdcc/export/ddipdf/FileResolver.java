@@ -17,9 +17,11 @@ public class FileResolver implements URIResolver {
     public Source resolve(String href, String base) throws TransformerException {
         logger.info("In File Resolver: {} {}", href, base);
         if (href.startsWith("file:")) {
-        String url =href.substring("file:".length()); // some calculation from its parameters
-                InputStream is = this.getClass().getResourceAsStream(url);
-                return new StreamSource(is);
+            int index = href.lastIndexOf("/");
+            String url =href.substring(index + 1); // some calculation from its parameters
+            InputStream is = this.getClass().getResourceAsStream(url);
+            return new StreamSource(is);
+
         } else {
             return null;
         }

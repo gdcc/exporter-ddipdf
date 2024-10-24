@@ -128,7 +128,9 @@
 	<!--
 		Report title
 	-->
-	<xsl:param name="report-title" select=" 'Study Documentation' "/>
+	<xsl:param name="report-title" select="$msg/*/entry[@key='Study Documentation']"/>
+
+
 	<!--
 		STYLES
 	-->
