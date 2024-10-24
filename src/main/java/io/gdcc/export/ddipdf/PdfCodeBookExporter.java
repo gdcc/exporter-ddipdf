@@ -25,7 +25,7 @@ public class PdfCodeBookExporter implements Exporter {
     public String getDisplayName(Locale locale) {
         //String displayName = BundleUtil.getStringFromBundle("dataset.exportBtn.itemLabel.pdf", locale);
         String displayName = null;
-        return Optional.ofNullable(displayName).orElse("DDI pdf codebook");
+        return Optional.ofNullable(displayName).orElse("DDI PDF Codebook");
     }
 
     @Override
